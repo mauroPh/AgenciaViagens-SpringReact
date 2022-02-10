@@ -1,6 +1,3 @@
-import DestinoScore from "components/DestinoScore";
-import { Link } from "react-router-dom";
-
 
 
 function Carousel() {

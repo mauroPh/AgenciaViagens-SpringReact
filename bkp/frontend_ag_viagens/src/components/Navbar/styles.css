@@ -1,0 +1,35 @@
+header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+button
+
+.dsmovie-nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.dsmovie-nav-content h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.dsmovie-contact-container {
+    display: flex;
+    align-items: center;
+}
+
+.dsmovie-contact-link {
+    margin: 0 0 0 10px;
+    font-size: 12px;
+}
+.agviagens-btn-outline-success{
+    color: #fff;
+    background-color: #4D41C0;
+    display: inline-block;
+    box-shadow: 5px 5px 0px #191970;
+}

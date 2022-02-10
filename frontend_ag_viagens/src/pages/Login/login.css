@@ -56,12 +56,12 @@ form input[type=submit],
     font-size: 14px;
 }
 form input[type=submit]:hover {
-    background-color: #0DFFAA;
+    background-color: #38A6FF;
     color:#000;
 }
 
 .button-email:hover {
-    background-color: #0DFFAA;
+    background-color: #38A6FF;
     color:#000;
 }
 
