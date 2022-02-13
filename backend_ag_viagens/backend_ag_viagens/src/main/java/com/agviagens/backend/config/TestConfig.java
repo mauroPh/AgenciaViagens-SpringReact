@@ -9,10 +9,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.agviagens.backend.entities.Destino;
+import com.agviagens.backend.entities.Pacote;
 import com.agviagens.backend.entities.Pedido;
 import com.agviagens.backend.entities.Usuario;
 import com.agviagens.backend.entities.enums.PedidoStatus;
 import com.agviagens.backend.repositories.DestinoRepository;
+import com.agviagens.backend.repositories.PacoteRepository;
 import com.agviagens.backend.repositories.PedidoRepository;
 import com.agviagens.backend.repositories.UsuarioRepository;
 
@@ -28,6 +30,9 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private DestinoRepository destinoRepository;
 	
+	@Autowired
+	private PacoteRepository pacoteRepository;
+	
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -41,7 +46,17 @@ public class TestConfig implements CommandLineRunner{
 		Destino dest7 = new Destino(null, "Fernando de Noronha - PE");
 		Destino dest8 = new Destino(null, "Ilhéus - BA");
 
+		
+		Pacote p1 = new Pacote(null,"Voo (ida + volta) + Hospedagem+  Café da Manhã","As pessoas ficarão em quartos duplos ou triplos, com no mínimo três pontuações .",2190.0,"");		
+		Pacote p2 = new Pacote(null,"Aéreo ","Pacote aéreo ida e volta",1190.0,"");
+		Pacote p3 = new Pacote(null,"Hospedagem ","As acomodações são equipadas com ar-condicionado, TV LCD 32” a cabo, frigobar e cofre. Alguns quartos dispõem de varanda. O hotel oferece 2 águas, café, leite e chá solúvel de cortesia.",1190.0,"");
+		
+		
+		
 		destinoRepository.saveAll(Arrays.asList(dest1,dest2,dest3,dest4,dest5,dest6,dest7,dest8));
+		pacoteRepository.saveAll(Arrays.asList(p1,p2,p3));
+		
+		
 		
 		Usuario u1 = new Usuario(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
 		Usuario u2 = new Usuario(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
