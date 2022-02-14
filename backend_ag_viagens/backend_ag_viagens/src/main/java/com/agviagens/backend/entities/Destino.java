@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Destino  implements Serializable {
@@ -21,7 +23,9 @@ public class Destino  implements Serializable {
 	private Long id;
 	private String nome;
 
-	@Transient
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "destinos")
 	private Set <Pacote>pacotes = new HashSet<>();
 
 	

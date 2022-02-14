@@ -47,7 +47,7 @@ public class TestConfig implements CommandLineRunner{
 		Destino dest8 = new Destino(null, "Ilhéus - BA");
 
 		
-		Pacote p1 = new Pacote(null,"Voo (ida + volta) + Hospedagem+  Café da Manhã","As pessoas ficarão em quartos duplos ou triplos, com no mínimo três pontuações .",2190.0,"");		
+		Pacote p1 = new Pacote(null,"Voo (ida + volta) + Hospedagem+  Café da Manhã","As pessoas ficarão em quartos duplos ou triplos, com no mínimo três pontuações .Pacote aéreo ida e volta. Café da manhã incluso",2190.0,"");		
 		Pacote p2 = new Pacote(null,"Aéreo ","Pacote aéreo ida e volta",1190.0,"");
 		Pacote p3 = new Pacote(null,"Hospedagem ","As acomodações são equipadas com ar-condicionado, TV LCD 32” a cabo, frigobar e cofre. Alguns quartos dispõem de varanda. O hotel oferece 2 águas, café, leite e chá solúvel de cortesia.",1190.0,"");
 		
@@ -56,6 +56,16 @@ public class TestConfig implements CommandLineRunner{
 		destinoRepository.saveAll(Arrays.asList(dest1,dest2,dest3,dest4,dest5,dest6,dest7,dest8));
 		pacoteRepository.saveAll(Arrays.asList(p1,p2,p3));
 		
+		p1.getDestinos().add(dest1);
+		p2.getDestinos().add(dest3);
+		p3.getDestinos().add(dest2);
+		p1.getDestinos().add(dest4);	
+		p2.getDestinos().add(dest5);
+		p3.getDestinos().add(dest6);
+		p1.getDestinos().add(dest7);	
+		p2.getDestinos().add(dest8);
+		
+		pacoteRepository.saveAll(Arrays.asList(p1,p2,p3));
 		
 		
 		Usuario u1 = new Usuario(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");

@@ -9,26 +9,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Pacote  implements Serializable {
-	
+public class Pacote implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String descricao;
 	private Double preco;
 	private String imgUrl;
-	
-	@Transient
-	private Set <Destino>destinos = new HashSet<>();
+
+	@ManyToMany
+	@JoinTable(name = "tb_pacote_destino", joinColumns = @JoinColumn(name = "pacote_id"), inverseJoinColumns = @JoinColumn(name = "destino_id"))
+
+	private Set<Destino> destinos = new HashSet<>();
 
 	public Pacote() {
-		
+
 	}
 
 	public Pacote(Long id, String nome, String descricao, Double preco, String imgUrl) {
@@ -101,5 +105,4 @@ public class Pacote  implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-			
 }
