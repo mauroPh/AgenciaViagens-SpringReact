@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.agviagens.backend.entities.Destino;
 import com.agviagens.backend.entities.Pacote;
+import com.agviagens.backend.entities.Pagamento;
 import com.agviagens.backend.entities.Pedido;
 import com.agviagens.backend.entities.PedidoItem;
 import com.agviagens.backend.entities.Usuario;
@@ -79,7 +80,7 @@ public class TestConfig implements CommandLineRunner{
 		
 		Pedido ped1 = new Pedido(null, Instant.parse("2022-02-10T19:53:07Z"), PedidoStatus.CANCELADO ,  u1);
 		Pedido ped2 = new Pedido(null, Instant.parse("2022-02-11T03:42:10Z"), PedidoStatus.AGUARDANDO_PAGAMENTO ,u2);
-		Pedido ped3 = new Pedido(null, Instant.parse("2019-02-12T15:21:22Z"), PedidoStatus.PAGO,u1);
+		Pedido ped3 = new Pedido(null, Instant.parse("2022-02-12T15:21:22Z"), PedidoStatus.PAGO,u1);
 		
 				
 		usuarioRepository.saveAll(Arrays.asList(u1,u2));
@@ -90,9 +91,13 @@ public class TestConfig implements CommandLineRunner{
 		PedidoItem itemPed3 =  new PedidoItem(ped1,p3,2, p3.getPreco());
 		PedidoItem itemPed4 =  new PedidoItem(ped1,p2,2, p2.getPreco());	
 		
-		
-		
 		pedidoItemRepository.saveAll(Arrays.asList(itemPed1,itemPed2,itemPed3,itemPed4));
+		
+		Pagamento pag1	= new Pagamento(null, Instant.parse("2022-02-12T17:21:22Z"),ped3);
+		ped3.setPagamento(pag1);
+		
+		pedidoRepository.save(ped3);
+		
 		
 	}
 
