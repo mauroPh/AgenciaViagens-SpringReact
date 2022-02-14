@@ -40,7 +40,7 @@ public class PedidoItem implements Serializable {
 		public void setPedido(Pedido pedido) {
 			id.setPedido(pedido);
 		}
-		
+
 		public Pacote getPacote() {
 			return id.getPacote();
 		}

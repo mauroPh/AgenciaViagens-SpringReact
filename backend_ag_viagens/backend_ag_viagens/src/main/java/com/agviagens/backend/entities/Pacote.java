@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Pacote implements Serializable {
@@ -31,6 +34,10 @@ public class Pacote implements Serializable {
 
 	private Set<Destino> destinos = new HashSet<>();
 
+	
+	@OneToMany(mappedBy = "id.pacote")	
+	private Set<PedidoItem> items = new HashSet<>();
+	
 	public Pacote() {
 
 	}
@@ -88,6 +95,16 @@ public class Pacote implements Serializable {
 		return destinos;
 	}
 
+	@JsonIgnore
+	public Set<Pedido>getPedidos(){
+		Set <Pedido> set = new HashSet<>();
+		for (PedidoItem x : items ) {
+			set.add(x.getPedido());
+		}
+		return set;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
