@@ -5,11 +5,9 @@ import {
 } from "react-router-dom";
 import Listing from 'pages/Listing';
 import Form from 'pages/Form';
-import Home from 'pages/Home';
 import Navbar from "components/Navbar";
 import Login from "pages/Login";
 import Cadastro from "pages/Login/cadastro";
-import Footer from "components/Footer";
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Listing />} />
         <Route path="/destinos" element={<Listing />} />
         <Route path="/form">
           <Route path=":pacoteId" element={<Form />} />
