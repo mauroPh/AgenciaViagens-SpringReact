@@ -3,6 +3,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Home from 'pages/HomePage';
 import Listing from 'pages/Listing';
 import Form from 'pages/Form';
 import Navbar from "components/Navbar";
@@ -15,7 +16,7 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path="/" element={<Listing />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/destinos" element={<Listing />} />
         <Route path="/form">
           <Route path=":pacoteId" element={<Form />} />

@@ -5,25 +5,19 @@ header {
 }
 button
 
-.dsmovie-nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-}
 
-.dsmovie-nav-content h1 {
+.agviagens-nav-content h1 {
     font-size: 24px;
     margin: 0;
     font-weight: 700;
 }
 
-.dsmovie-contact-container {
+.agviagens-contact-container {
     display: flex;
     align-items: center;
 }
 
-.dsmovie-contact-link {
+.agviagens-contact-link {
     margin: 0 0 0 10px;
     font-size: 12px;
 }

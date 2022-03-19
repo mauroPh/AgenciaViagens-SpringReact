@@ -15,7 +15,7 @@ function DestinoCard1(){
 
 return(
     <div>
-    <img className="agviagens-destino-card-image" src={destino1.image} alt={destino1.title} />
+        <img className="agviagens-destino-card-image"src={destino1.image} alt={destino1.title} />
     <div className="agviagens-card-bottom-container">
         <h3>{destino1.title}</h3>
         <h4>$450,00 /adulto</h4>
